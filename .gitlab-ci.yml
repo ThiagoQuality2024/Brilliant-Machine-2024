@@ -1,0 +1,22 @@
+image: cypress/base:16
+
+stages:
+  - test
+
+test:
+  stage: test
+  before_script:
+    - rm -rf node_modules package-lock.json    # Apaga o package-lock.json e node_modules
+    - npm install
+    - npm install -D cypress-xpath    # Instala o cypress-xpath
+    - npm install --save-dev mochawesome
+  script:
+    - npx cypress run
+  artifacts:
+    when: always
+    paths:
+      - cypress/videos/**              # Salva vídeos dos testes
+    expire_in: 1 week
+  retry:
+    max: 2      
+ 
