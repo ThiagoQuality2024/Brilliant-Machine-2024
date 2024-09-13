@@ -1,5 +1,5 @@
 # -----Instruções para executar o teste------- 
-s
+
 1- Baixar a pasta do repositorio remoto "Projeto Brilliant Machine" para seu computador local.
 2- Abrir uma IDE se sua preferencia, (eu utilizei VS CODE, pois estou mais ambientado).
 3- Dentro no Visual Code, clicar em File-> Open Folder e abrir a pasta do projeto para visualizar o codigo que está dentro da sub pasta e2e.
@@ -30,3 +30,5 @@ e no teste de usuario para ficar organizado e visivel , eu inseri informações 
 5- Após fazer o download do arquivo em sua maquina local, você extraia o zip para poder verificar o relatorio dos testes.
 6- Os relatorios do teste compreende em 2 videos. 1 video-> teste de API 2 2 video-> teste de interface.
 7- Dentro do proprio historico do job você poderá ver que os testes passaram com sucesso. Ambos aparecem como "Passing".
+# Brilliant-Machine-2024
+Testes
