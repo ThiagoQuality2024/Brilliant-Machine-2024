@@ -21,15 +21,25 @@ e no teste de usuario para ficar organizado e visivel , eu inseri informações 
 2- Para visualizar o relatorio, você pode ir na pasta principal do projeto no seu computador , cypress/Relatorios-Testes-HTML. 
 3-Dentro da pasta Cypress também tem uma pasta chamda videos, com a reprodução do video do teste, graças ao Mochawesome que eu criei 
 
-### ----------Instruções Teste Pipeline CI/CD------------
+### ----------- Arquivo yml------------
 
-1- Dentro do Git Lab, clique no menu Build -> Jobs
-2- Dentro de Jobs você vai ver alguns Pipeline com falha, pois durante meus Builds eu enfrentei um problema no arquivo YML, depois de algumas tentativas eu descobri que o que estava impactando o meu job rodar era a versão que eu informei no arquivo Alterei para a versão 16 e funcionou.
-3- na coluna Status, clicar no JOB passed para ver todo o historico do JOB da ultima atualizão que eu subi do local para o remoto.
-4- Na coluna a direita , em Job artfacts , clicar em Download.
-5- Após fazer o download do arquivo em sua maquina local, você extraia o zip para poder verificar o relatorio dos testes.
-6- Os relatorios do teste compreende em 2 videos. 1 video-> teste de API 2 2 video-> teste de interface.
-7- Dentro do proprio historico do job você poderá ver que os testes passaram com sucesso. Ambos aparecem como "Passing".
+1- Criei o caminho dentro da minha pasta local .github/workflows/. 
+2- Dentro da subpasta Wokflows eu inseri o arquivo YML, responsavel por fazer rodar os testes CI /CD. 
+3- No arquivo yml contem todo o codigo necessario para rodar o teste e gerar a evidencia (Evidencia que será 2 videos da execução dos meus testes)
+4- Sempre que eu fizer um push no meu repositorio local que seria subir uma atualizaçao do arquivo, o pipeline do CI/CD será acionado automaticamente.
 
-#### Brilliant-Machine-2024
+#### ----------Instruções Teste Pipeline CI/CD + GIT------------
+
+1- Configurar o git (usei o Git Bash). OBS: Determinar a branch e sincronizar com o repositorio remoto
+2- Dentro do Git, executar os comandos Git add .  -> Git commit -m ' nome do comit' -> git push 
+3- Esse procedimento na etapa 2, sobe uma mudança nos arquivos feita no repositorio local para o remoto. 
+4- Retornar para o GIT HUB, você vai clicar no menu Actions
+5- Dentro do menu Actions após um git push ser feito com sucesso o job vai rodar automaticamente testando seu codigo no repositorio remoto.
+6- Como o codigo está correto o Workflow mostrou o pipeline com sucesso.
+7- Clicar no Pipeline e verificar o log
+8- Dentro do logo vc pode clicar no test para verificar todo historico do teste feito no conteiner.
+9- Na seção artfacts você vai encontrar o relatorio do teste. Clicar em dowload para baixar para sua maquina e extrair o arquivo.
+10- O relatorio consiste em 2 videos. 1- video o teste der APi solicitado no arquivo do desafio. 2 video é o teste de interface do usuario que tambem foi solicitado no desafio proposto para testar meus conhecimentos.
+
+#####  Brilliant-Machine-2024
 Testes
