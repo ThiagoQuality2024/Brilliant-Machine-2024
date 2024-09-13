@@ -1,22 +1,40 @@
-image: cypress/base:16
+name: CI
 
-stages:
-  - test
+on:
+  push:
+    branches:
+      - main  # Substitua pela sua branch principal se for diferente
+  pull_request:
+    branches:
+      - main  # Substitua pela sua branch principal se for diferente
 
-test:
-  stage: test
-  before_script:
-    - rm -rf node_modules package-lock.json    # Apaga o package-lock.json e node_modules
-    - npm install
-    - npm install -D cypress-xpath    # Instala o cypress-xpath
-    - npm install --save-dev mochawesome
-  script:
-    - npx cypress run
-  artifacts:
-    when: always
-    paths:
-      - cypress/videos/**              # Salva vídeos dos testes
-    expire_in: 1 week
-  retry:
-    max: 2      
- 
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Remove old dependencies and install
+        run: |
+          rm -rf node_modules package-lock.json
+          npm install
+          npm install -D cypress-xpath
+          npm install --save-dev mochawesome
+
+      - name: Run Cypress tests
+        run: npx cypress run
+
+      - name: Upload Cypress videos
+        uses: actions/upload-artifact@v3
+        with:
+          name: cypress-videos
+          path: cypress/videos/
+
+    retry:
+      max: 2
